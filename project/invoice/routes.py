@@ -267,7 +267,7 @@ def save_invoice(invoice_id):
 
     html_out = render_template("invoice.html", **invoice_dict)
 
-    HTML(string=html_out).write_pdf(file, stylesheets=[ url_for('invoice.static', filename='/js/app.js') ])
+    HTML(string=html_out).write_pdf(file, stylesheets=[ os.path.join(this_folder, "static",'css/styles.css') ])
 
     return_data = io.BytesIO()
     with open(file, "rb") as fo:
